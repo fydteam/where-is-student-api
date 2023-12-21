@@ -60,7 +60,7 @@ app.use('*', serveStatic({ root:'./public' }))
 
 const port = parseInt(process.env.HAN_PORT!) || 3000
 
-console.log('버전 1.0.0')
+console.log('버전 1.0.1')
 
 export default {
     port,
