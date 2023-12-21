@@ -58,7 +58,7 @@ app.route('/hook', hook)
 
 app.use('*', serveStatic({ root:'./public' }))
 
-const port = parseInt(process.env.PORT!) || 3000
+const port = parseInt(process.env.HAN_PORT!) || 3000
 
 console.log('버전 1.0.0')
 
