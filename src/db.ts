@@ -7,8 +7,6 @@ export const sequelize = new Sequelize(Bun.env.HAN_POSTGRES_DB ?? 'db', Bun.env.
     models:[ Person ]
 });
 
-
-
 try{
     await sequelize.authenticate()
     console.log('완료')

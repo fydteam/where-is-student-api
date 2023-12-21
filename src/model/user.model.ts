@@ -1,5 +1,5 @@
 import { InferAttributes, InferCreationAttributes } from 'sequelize';
-import { Table, Column, Model, HasMany, DataType, CreatedAt, UpdatedAt, PrimaryKey } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, CreatedAt, UpdatedAt, PrimaryKey } from 'sequelize-typescript';
 
 @Table({
   charset:'utf-8',
@@ -8,10 +8,16 @@ import { Table, Column, Model, HasMany, DataType, CreatedAt, UpdatedAt, PrimaryK
 export class Person extends Model<InferAttributes<Person>, InferCreationAttributes<Person>> {  
   @PrimaryKey
   @Column(DataType.STRING)
-  declare person_id: string;
+  declare id:string
+
+  @Column(DataType.STRING)
+  declare user_id: string;
   
   @Column(DataType.STRING)
   declare name: string;
+
+  @Column(DataType.STRING)
+  declare secret:string;
 
   @CreatedAt
   declare createdAt?: Date;

@@ -1,0 +1,21 @@
+name: DB Sync Daily
+
+on:
+  push:
+    branches:
+        - main
+
+jobs:
+    run-test:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+      
+      - name: Run Bun test
+        env: 
+          TEST: ${{ vars.TEST }}
+        run: bun install && bun run src/test.ts

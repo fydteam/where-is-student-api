@@ -18,7 +18,6 @@ const customLog = (message: string, ...rest: string[]) => {
     })
 }
 const app = new Hono()
-app.get('/', (c) => c.text('Pretty Blog API'))
 app.use('*', prettyJSON())
 app.use('*', logger(customLog))
 app.notFound((c) => {
@@ -31,20 +30,20 @@ app.onError((err, c) => {
 })
 
 
-app.post(
-    '/echo',
-    validator('json', (value, c) => {
-        if(!('test2' in value && 'test1' in value)){
-            return c.json({ok:false, reason:'Invalid'}, 400)
-        }
-        return value 
-    }),
-    async (c) => {
-        const json = c.req.valid('json')
+// app.post(
+//     '/echo',
+//     validator('json', (value, c) => {
+//         if(!('test2' in value && 'test1' in value)){
+//             return c.json({ok:false, reason:'Invalid'}, 400)
+//         }
+//         return value 
+//     }),
+//     async (c) => {
+//         const json = c.req.valid('json')
         
-        return c.json({ ok:true, data:json})
-    }
-)
+//         return c.json({ ok:true, data:json})
+//     }
+// )
 
 app.route('/api', api)
 app.route('/page', page)

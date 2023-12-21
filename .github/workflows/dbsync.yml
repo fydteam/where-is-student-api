@@ -1,0 +1,24 @@
+name: DB Sync Daily
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 매일 자정 (UTC 시간)에 실행
+
+jobs:
+  run-cronjob:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+
+    - name: Bun Install
+      run: bun install
+
+    - name: Run cronjob script
+      run: bun cronjob
