@@ -11,6 +11,12 @@ import page from './page'
 import hook from './api/hook'
 import { sequelize } from './db'
 
+try{
+    await sequelize.authenticate()
+} catch(err){
+    console.error(err)
+}
+
 const customLog = (message: string, ...rest: string[]) => {
     const date = new Date()
     const str = `${date.getFullYear()}-${date.getMonth().toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}T${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`
