@@ -60,6 +60,8 @@ app.use('*', serveStatic({ root:'./public' }))
 
 const port = parseInt(process.env.PORT!) || 3000
 
+console.log('버전 1.0.0')
+
 export default {
     port,
     fetch:app.fetch
