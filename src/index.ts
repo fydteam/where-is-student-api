@@ -12,7 +12,9 @@ import hook from './api/hook'
 import { sequelize } from './db'
 import fs from 'node:fs'
 
-if(!(await Bun.file('./logs').exists())){
+try{
+    await fs.promises.access('./logs')
+} catch(err){
     await fs.promises.mkdir('./logs')
 }
 
