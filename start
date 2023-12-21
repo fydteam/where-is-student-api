@@ -1,0 +1,22 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+cd "$SCRIPT_DIR" || exit
+
+if [ ! -e dbdata ]; then
+mkdir dbdata
+fi
+
+if [ ! -e .env ]; then
+touch .env
+cat << EOF > .env
+HAN_POSTGRES_DB=
+HAN_POSTGRES_USER=
+HAN_POSTGRES_PASSWORD=
+HAN_POSTGRES_HOST=
+HAN_POSTGRES_PORT=
+HAN_PORT=
+HAN_POSTGRES_VOLUME="$SCRIPT_DIR/dbdata"
+EOF
+fi
+
