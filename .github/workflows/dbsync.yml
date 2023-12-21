@@ -27,9 +27,9 @@ jobs:
         HAN_POSTGRES_PASSWORD: ${{ secrets.HAN_POSTGRES_PASSWORD }}
         HAN_POSTGRES_HOST: ${{ secrets.HAN_POSTGRES_HOST }}
         HAN_POSTGRES_PORT: ${{ secrets.HAN_POSTGRES_PORT }}
+        HAN_INCODING_SECRET: ${{ secrets.HAN_INCODING_SECRET }}
         INCODING_DB_HOST: ${{ secrets.INCODING_DB_HOST }}
         INCODING_DB_DB: ${{ secrets.INCODING_DB_DB }}
         INCODING_DB_USER: ${{ secrets.INCODING_DB_USER }}
         INCODING_DB_PASS: ${{ secrets.INCODING_DB_PASS }}
-        INCODING_SECRET: ${{ secrets.INCODING_SECRET }}
       run: bun cron
