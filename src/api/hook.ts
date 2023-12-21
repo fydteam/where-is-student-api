@@ -8,7 +8,7 @@ const KILL = Bun.argv[2] ?? 'kill'
 const api = new Hono()
 api.use('*', cors())
 
-api.get('/', async c => {
+api.post('/', async c => {
     const header = c.req.header('X-Hub-Signature-256')
     const payload = await c.req.json()
     if(!header){
