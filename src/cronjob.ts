@@ -4,7 +4,7 @@ import { IncodingStudent } from "./model/incoding.user.model";
 import { sequelize } from "./db";
 import { Person } from "./model/user.model";
 
-const SECRET = Bun.env.INCODING_SECRET ?? 'secret'
+const SECRET = Bun.env.HAN_INCODING_SECRET ?? 'secret'
 
 const sequelize2 = new Sequelize(Bun.env.INCODING_DB_DB ?? 'db', Bun.env.INCODING_DB_USER ?? 'user', Bun.env.INCODING_DB_PASS ?? 'password', {
     host: Bun.env.INCODING_DB_HOST ?? 'localhost',
