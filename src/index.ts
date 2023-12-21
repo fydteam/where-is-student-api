@@ -10,6 +10,11 @@ import api from './api'
 import page from './page'
 import hook from './api/hook'
 import { sequelize } from './db'
+import fs from 'node:fs'
+
+if(!(await Bun.file('./logs').exists())){
+    await fs.promises.mkdir('./logs')
+}
 
 try{
     await sequelize.authenticate()
