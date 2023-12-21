@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start":"bun run src/controller.ts",
     "dev": "bun run --hot src/index.ts",
     "pgmake": "docker-compose up -d",
     "db": "bun run src/db.ts",

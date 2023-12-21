@@ -8,6 +8,7 @@ import { appendFileSync } from 'node:fs'
 import path from 'node:path'
 import api from './api'
 import page from './page'
+import hook from './api/hook'
 import { sequelize } from './db'
 
 const customLog = (message: string, ...rest: string[]) => {
@@ -47,6 +48,7 @@ app.onError((err, c) => {
 
 app.route('/api', api)
 app.route('/page', page)
+app.route('/hook', hook)
 
 app.use('*', serveStatic({ root:'./public' }))
 

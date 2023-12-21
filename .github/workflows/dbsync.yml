@@ -21,4 +21,15 @@ jobs:
       run: bun install
 
     - name: Run cronjob script
+      env:
+        HAN_POSTGRES_DB: ${{ secrets.HAN_POSTGRES_DB }}
+        HAN_POSTGRES_USER: ${{ secrets.HAN_POSTGRES_USER }}
+        HAN_POSTGRES_PASSWORD: ${{ secrets.HAN_POSTGRES_PASSWORD }}
+        HAN_POSTGRES_HOST: ${{ secrets.HAN_POSTGRES_HOST }}
+        HAN_POSTGRES_PORT: ${{ secrets.HAN_POSTGRES_PORT }}
+        INCODING_DB_HOST: ${{ secrets.INCODING_DB_HOST }}
+        INCODING_DB_DB: ${{ secrets.INCODING_DB_DB }}
+        INCODING_DB_USER: ${{ secrets.INCODING_DB_USER }}
+        INCODING_DB_PASS: ${{ secrets.INCODING_DB_PASS }}
+        INCODING_SECRET: ${{ secrets.INCODING_SECRET }}
       run: bun cronjob
