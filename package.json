@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/node": "^20.10.5",
     "@types/validator": "^13.11.7",
-    "bun-types": "latest"
+    "@types/bun": "latest"
   },
   "type": "module"
 }
