@@ -1,8 +1,6 @@
 import { Hono } from 'hono'
-import { basicAuth } from 'hono/basic-auth'
 import { prettyJSON } from 'hono/pretty-json'
 import { serveStatic } from 'hono/bun'
-import { validator } from 'hono/validator'
 import { logger } from 'hono/logger'
 import { appendFileSync } from 'node:fs'
 import path from 'node:path'
@@ -43,21 +41,7 @@ app.onError((err, c) => {
     return c.html(`<pre>${err}</pre>`)
 })
 
-
-// app.post(
-//     '/echo',
-//     validator('json', (value, c) => {
-//         if(!('test2' in value && 'test1' in value)){
-//             return c.json({ok:false, reason:'Invalid'}, 400)
-//         }
-//         return value 
-//     }),
-//     async (c) => {
-//         const json = c.req.valid('json')
-        
-//         return c.json({ ok:true, data:json})
-//     }
-// )
+app.get('/', c => c.json({message:'Hello World!!!'}))
 
 app.route('/api', api)
 app.route('/page', page)

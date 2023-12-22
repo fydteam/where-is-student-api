@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize-typescript";
-import { Person } from "./model/user.model";
+import { Person, UserState } from "./model/user.model";
 
 export const sequelize = new Sequelize(Bun.env.HAN_POSTGRES_DB ?? 'db', Bun.env.HAN_POSTGRES_USER ?? 'user', Bun.env.HAN_POSTGRES_PASSWORD ?? 'password', {
     host: Bun.env.HAN_POSTGRES_HOST ?? 'localhost',
     port: Number(Bun.env.HAN_POSTGRES_PORT ?? '5432'),
     dialect: 'postgres',
-    models:[ Person ]
+    models:[ Person, UserState ]
 });
 
 try{
@@ -16,7 +16,7 @@ try{
 }
 
 try{
-    await sequelize.sync({force:import.meta.main})
+    await sequelize.sync({alter:import.meta.main})
 } catch(err){
     console.error(err)
 }
